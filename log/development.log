@@ -1,0 +1,807 @@
+Started GET "/" for 127.0.0.1 at 2022-10-06 00:01:05 -0500
+  
+ActiveRecord::NoDatabaseError (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "CRUD_Universidad_development" does not exist
+):
+  
+activerecord (6.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (6.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (220.7ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_development" ENCODING = 'unicode'[0m
+  [1m[35m (160.1ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test" ENCODING = 'unicode'[0m
+Started GET "/" for 127.0.0.1 at 2022-10-06 00:01:27 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 20.9ms | Allocations: 421)
+Completed 200 OK in 30ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 3495)
+
+
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDegrees (20221006051926)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006051926"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-06 05:20:36.167099"], ["updated_at", "2022-10-06 05:20:36.167099"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/degrees" for 127.0.0.1 at 2022-10-06 00:21:03 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DegreesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/index.html.erb within layouts/application
+  [1m[36mDegree Load (1.5ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees"[0m
+  ↳ app/views/degrees/index.html.erb:14
+  Rendered degrees/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1417)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/ghiguera/Desktop/5to_semestre/Gestion_de_tecnologias/SGSI_Universidad/public/packs
+[Webpacker] Hash: 4949f615883aa45838a7
+Version: webpack 4.46.0
+Time: 1275ms
+Built at: 10/06/2022 12:21:06 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-19ade39cc333985062bf.js    125 KiB  application  [emitted] [immutable]  application
+js/application-19ade39cc333985062bf.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-19ade39cc333985062bf.js js/application-19ade39cc333985062bf.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 2677.0ms | Allocations: 18775)
+Completed 200 OK in 2686ms (Views: 2677.8ms | ActiveRecord: 1.5ms | Allocations: 22343)
+
+
+Started GET "/degrees/new" for 127.0.0.1 at 2022-10-06 00:37:09 -0500
+Processing by DegreesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/new.html.erb within layouts/application
+  Rendered degrees/_form.html.erb (Duration: 26.3ms | Allocations: 6717)
+  Rendered degrees/new.html.erb within layouts/application (Duration: 27.8ms | Allocations: 7101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.7ms | Allocations: 9984)
+Completed 200 OK in 79ms (Views: 35.5ms | ActiveRecord: 24.9ms | Allocations: 18916)
+
+
+Started POST "/degrees" for 127.0.0.1 at 2022-10-06 00:37:16 -0500
+Processing by DegreesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "degree"=>{"name"=>"Ingeniería de Software"}, "commit"=>"Create Degree"}
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/degrees_controller.rb:27:in `block in create'
+  [1m[36mDegree Create (3.1ms)[0m  [1m[32mINSERT INTO "degrees" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ingeniería de Software"], ["created_at", "2022-10-06 05:37:16.133440"], ["updated_at", "2022-10-06 05:37:16.133440"]]
+  ↳ app/controllers/degrees_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/degrees_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/degrees/1
+Completed 302 Found in 18ms (ActiveRecord: 6.6ms | Allocations: 3387)
+
+
+Started GET "/degrees/1" for 127.0.0.1 at 2022-10-06 00:37:16 -0500
+Processing by DegreesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDegree Load (1.7ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees" WHERE "degrees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/degrees_controller.rb:63:in `set_degree'
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/show.html.erb within layouts/application
+  Rendered degrees/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 274)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3268)
+Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 3.1ms | Allocations: 5332)
+
+
+Started GET "/degrees/1/edit" for 127.0.0.1 at 2022-10-06 00:37:19 -0500
+Processing by DegreesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDegree Load (1.5ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees" WHERE "degrees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/degrees_controller.rb:63:in `set_degree'
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/edit.html.erb within layouts/application
+  Rendered degrees/_form.html.erb (Duration: 3.0ms | Allocations: 747)
+  Rendered degrees/edit.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1034)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4014)
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 1.5ms | Allocations: 5290)
+
+
+Started PATCH "/degrees/1" for 127.0.0.1 at 2022-10-06 00:37:22 -0500
+Processing by DegreesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "degree"=>{"name"=>"Ingeniería de Software"}, "commit"=>"Update Degree", "id"=>"1"}
+  [1m[36mDegree Load (0.9ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees" WHERE "degrees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/degrees_controller.rb:63:in `set_degree'
+Redirected to http://127.0.0.1:3000/degrees/1
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms | Allocations: 1276)
+
+
+Started GET "/degrees/1" for 127.0.0.1 at 2022-10-06 00:37:22 -0500
+Processing by DegreesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDegree Load (0.8ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees" WHERE "degrees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/degrees_controller.rb:63:in `set_degree'
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/show.html.erb within layouts/application
+  Rendered degrees/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3123)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.8ms | Allocations: 4277)
+
+
+Started GET "/degrees" for 127.0.0.1 at 2022-10-06 00:37:23 -0500
+Processing by DegreesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/index.html.erb within layouts/application
+  [1m[36mDegree Load (2.6ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees"[0m
+  ↳ app/views/degrees/index.html.erb:14
+  Rendered degrees/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4229)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 2.6ms | Allocations: 5142)
+
+
+Started GET "/degrees/1" for 127.0.0.1 at 2022-10-06 00:37:41 -0500
+Processing by DegreesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDegree Load (1.7ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees" WHERE "degrees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/degrees_controller.rb:63:in `set_degree'
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/show.html.erb within layouts/application
+  Rendered degrees/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3121)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 1.7ms | Allocations: 4266)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchools (20221006060000)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" integer, "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006060000"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 01:00:35 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (1.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1470)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 20539)
+Completed 200 OK in 59ms (Views: 51.2ms | ActiveRecord: 1.0ms | Allocations: 24195)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:00:39 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 12.2ms | Allocations: 3525)
+  Rendered schools/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 3928)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 6985)
+Completed 200 OK in 47ms (Views: 21.8ms | ActiveRecord: 10.5ms | Allocations: 11993)
+
+
+Started GET "/degrees" for 127.0.0.1 at 2022-10-06 01:00:53 -0500
+Processing by DegreesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/index.html.erb within layouts/application
+  [1m[36mDegree Load (2.3ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees"[0m
+  ↳ app/views/degrees/index.html.erb:14
+  Rendered degrees/index.html.erb within layouts/application (Duration: 21.5ms | Allocations: 3618)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 6732)
+Completed 200 OK in 36ms (Views: 23.3ms | ActiveRecord: 9.3ms | Allocations: 8053)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-06 01:00:57 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.0ms | Allocations: 225)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 1084)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20221006060820)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "school" integer, "degree" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006060820"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/students" for 127.0.0.1 at 2022-10-06 01:08:55 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2682)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 23951)
+Completed 200 OK in 62ms (Views: 51.0ms | ActiveRecord: 4.5ms | Allocations: 27620)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2022-10-06 01:08:57 -0500
+Processing by StudentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/_form.html.erb (Duration: 15.0ms | Allocations: 7337)
+  Rendered students/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 7723)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 10819)
+Completed 200 OK in 39ms (Views: 22.4ms | ActiveRecord: 2.1ms | Allocations: 16595)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2022-10-06 01:14:20 -0500
+Processing by StudentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/_form.html.erb (Duration: 23.8ms | Allocations: 5118)
+  Rendered students/new.html.erb within layouts/application (Duration: 25.7ms | Allocations: 5495)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 8720)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.0ms | Allocations: 9964)
+
+
+Started POST "/students" for 127.0.0.1 at 2022-10-06 01:15:36 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student"=>{"first_name"=>"Gustavo", "last_name"=>"Higuera Mayoral", "email"=>"ghiguera@ucol.mx", "phone_number"=>"3121695047", "birth_date"=>"2002-09-03", "address"=>"Juárez #127 Centro", "school"=>"1", "degree"=>"1"}, "commit"=>"Create Student"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/students_controller.rb:27:in `block in create'
+  [1m[36mStudent Create (1.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "email", "phone_number", "birth_date", "address", "school", "degree", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Gustavo"], ["last_name", "Higuera Mayoral"], ["email", "ghiguera@ucol.mx"], ["phone_number", "3121695047"], ["birth_date", "2002-09-03"], ["address", "Juárez #127 Centro"], ["school", 1], ["degree", 1], ["created_at", "2022-10-06 06:15:36.390792"], ["updated_at", "2022-10-06 06:15:36.390792"]]
+  ↳ app/controllers/students_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/students_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/students/1
+Completed 302 Found in 24ms (ActiveRecord: 12.8ms | Allocations: 8197)
+
+
+Started GET "/students/1" for 127.0.0.1 at 2022-10-06 01:15:36 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:63:in `set_student'
+  Rendering layout layouts/application.html.erb
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 457)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3514)
+Completed 200 OK in 20ms (Views: 10.6ms | ActiveRecord: 1.2ms | Allocations: 7257)
+
+
+Started GET "/students" for 127.0.0.1 at 2022-10-06 01:15:38 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (2.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1440)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 5056)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 2.4ms | Allocations: 5669)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 01:16:50 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (1.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1257)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 4388)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 1.8ms | Allocations: 5696)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:16:52 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 4.4ms | Allocations: 1621)
+  Rendered schools/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2107)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 5201)
+Completed 200 OK in 40ms (Views: 17.1ms | ActiveRecord: 9.4ms | Allocations: 9596)
+
+
+Started POST "/schools" for 127.0.0.1 at 2022-10-06 01:17:17 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "school"=>{"name"=>"Facultad de Telemática", "phone_number"=>"3123334444", "address"=>"Las Viboras #333"}, "commit"=>"Create School"}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.5ms | Allocations: 2686)
+
+
+  
+ActiveModel::RangeError (3123334444 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/schools_controller.rb:27:in `block in create'
+app/controllers/schools_controller.rb:26:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "students" ALTER COLUMN "phone_number" TYPE float[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "students" ALTER COLUMN "phone_number" TYPE bigint[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "students" ALTER COLUMN "phone_number" TYPE bigint[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ALTER COLUMN "phone_number" TYPE bigint[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypesOfPhoneNumber (20221006062258)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.9ms)[0m  [1m[35mALTER TABLE "students" ALTER COLUMN "phone_number" TYPE character varying(10)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "schools" ALTER COLUMN "phone_number" TYPE character varying(10)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006062258"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:45:31 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 20.5ms | Allocations: 3499)
+  Rendered schools/new.html.erb within layouts/application (Duration: 22.1ms | Allocations: 4070)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 10607)
+Completed 200 OK in 58ms (Views: 40.5ms | ActiveRecord: 4.7ms | Allocations: 18056)
+
+
+Started POST "/schools" for 127.0.0.1 at 2022-10-06 01:45:39 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "school"=>{"name"=>"Facultad de Telemática", "phone_number"=>"3123334444", "address"=>"Las Viboras #333"}, "commit"=>"Create School"}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mSchool Create (2.9ms)[0m  [1m[32mINSERT INTO "schools" ("name", "phone_number", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Facultad de Telemática"], ["phone_number", "3123334444"], ["address", "Las Viboras #333"], ["created_at", "2022-10-06 06:45:39.035544"], ["updated_at", "2022-10-06 06:45:39.035544"]]
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/schools/1
+Completed 302 Found in 18ms (ActiveRecord: 7.0ms | Allocations: 3446)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2022-10-06 01:45:39 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchool Load (0.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:63:in `set_school'
+  Rendering layout layouts/application.html.erb
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 328)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3435)
+Completed 200 OK in 12ms (Views: 6.1ms | ActiveRecord: 1.1ms | Allocations: 5567)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2022-10-06 01:45:54 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchool Load (0.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:63:in `set_school'
+  Rendering layout layouts/application.html.erb
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3237)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.6ms | Allocations: 4405)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:45:55 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 1.5ms | Allocations: 1096)
+  Rendered schools/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 4312)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4771)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 01:45:58 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 4485)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.8ms | Allocations: 5088)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:45:59 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 2.3ms | Allocations: 1096)
+  Rendered schools/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4312)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4773)
+
+
+Started POST "/schools" for 127.0.0.1 at 2022-10-06 01:46:54 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "school"=>{"name"=>"Facultad de Contabilidad", "phone_number"=>"312111111111", "address"=>"Las Viboras #333"}, "commit"=>"Create School"}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mSchool Create (1.3ms)[0m  [1m[32mINSERT INTO "schools" ("name", "phone_number", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Facultad de Contabilidad"], ["phone_number", "312111111111"], ["address", "Las Viboras #333"], ["created_at", "2022-10-06 06:46:54.048165"], ["updated_at", "2022-10-06 06:46:54.048165"]]
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.8ms | Allocations: 3556)
+
+
+  
+ActiveRecord::ValueTooLong (PG::StringDataRightTruncation: ERROR:  value too long for type character varying(10)
+):
+  
+app/controllers/schools_controller.rb:27:in `block in create'
+app/controllers/schools_controller.rb:26:in `create'
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:47:11 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 3.1ms | Allocations: 1096)
+  Rendered schools/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4328)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 4788)
+
+
+Started POST "/schools" for 127.0.0.1 at 2022-10-06 01:47:36 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "school"=>{"name"=>"Facultad de Contabilidad", "phone_number"=>"312111111111", "address"=>"Las Viboras #333"}, "commit"=>"Create School"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mSchool Create (4.2ms)[0m  [1m[32mINSERT INTO "schools" ("name", "phone_number", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Facultad de Contabilidad"], ["phone_number", "312111111111"], ["address", "Las Viboras #333"], ["created_at", "2022-10-06 06:47:36.171868"], ["updated_at", "2022-10-06 06:47:36.171868"]]
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 5.7ms | Allocations: 3449)
+
+
+  
+ActiveRecord::ValueTooLong (PG::StringDataRightTruncation: ERROR:  value too long for type character varying(10)
+):
+  
+app/controllers/schools_controller.rb:27:in `block in create'
+app/controllers/schools_controller.rb:26:in `create'
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:49:15 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 1.2ms | Allocations: 1465)
+  Rendered schools/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1799)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1869)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3089)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: school) do |form| %>
+  <% if school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+        <% school.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field maxlength="10" :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: school) do |form| %>
+2:      <% if school.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% school.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= form.label :name %>
+16:        <%= form.text_field :name %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= form.label :phone_number %>
+21:        <%= form.number_field maxlength="10" :phone_number %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= form.label :address %>
+26:        <%= form.text_field :address %>
+27:      </div>
+28:    
+29:      <div class="actions">
+30:        <%= form.submit %>
+31:      </div>
+32:    <% end %>
+  
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/new.html.erb:3
+Started GET "/students" for 127.0.0.1 at 2022-10-06 01:49:23 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (2.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 7009)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 10329)
+Completed 200 OK in 37ms (Views: 27.8ms | ActiveRecord: 8.0ms | Allocations: 11644)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 01:49:27 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (1.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1346)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4513)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 1.5ms | Allocations: 5096)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:49:28 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 2.6ms | Allocations: 1443)
+  Rendered schools/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1539)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1608)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2033)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: school) do |form| %>
+  <% if school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+        <% school.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field maxlength="10" :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: school) do |form| %>
+2:      <% if school.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% school.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= form.label :name %>
+16:        <%= form.text_field :name %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= form.label :phone_number %>
+21:        <%= form.number_field maxlength="10" :phone_number %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= form.label :address %>
+26:        <%= form.text_field :address %>
+27:      </div>
+28:    
+29:      <div class="actions">
+30:        <%= form.submit %>
+31:      </div>
+32:    <% end %>
+  
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/_form.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/schools/new.html.erb:3
+Started GET "/schools/new" for 127.0.0.1 at 2022-10-06 01:49:41 -0500
+Processing by SchoolsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 3.6ms | Allocations: 1465)
+  Rendered schools/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1836)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 5175)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 6403)
+
+
+Started POST "/schools" for 127.0.0.1 at 2022-10-06 01:50:30 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "school"=>{"name"=>"Facultad de Contabilidad", "phone_number"=>"3124445555", "address"=>"Las Viboras #333"}, "commit"=>"Create School"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mSchool Create (1.1ms)[0m  [1m[32mINSERT INTO "schools" ("name", "phone_number", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Facultad de Contabilidad"], ["phone_number", "3124445555"], ["address", "Las Viboras #333"], ["created_at", "2022-10-06 06:50:30.814647"], ["updated_at", "2022-10-06 06:50:30.814647"]]
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/schools/2
+Completed 302 Found in 11ms (ActiveRecord: 4.7ms | Allocations: 2666)
+
+
+Started GET "/schools/2" for 127.0.0.1 at 2022-10-06 01:50:30 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchool Load (0.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:63:in `set_school'
+  Rendering layout layouts/application.html.erb
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 309)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3414)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.9ms | Allocations: 4703)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 01:50:32 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (1.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1479)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4584)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 1.4ms | Allocations: 5172)
+
+
