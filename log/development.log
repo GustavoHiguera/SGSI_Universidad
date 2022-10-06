@@ -805,3 +805,348 @@ Processing by SchoolsController#index as HTML
 Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 1.4ms | Allocations: 5172)
 
 
+Started GET "/" for 127.0.0.1 at 2022-10-06 09:55:31 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 32.2ms | Allocations: 421)
+Completed 200 OK in 48ms (Views: 36.4ms | ActiveRecord: 0.0ms | Allocations: 3130)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 09:55:33 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (3.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 36.9ms | Allocations: 5829)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | Allocations: 12773)
+Completed 200 OK in 76ms (Views: 56.8ms | ActiveRecord: 14.5ms | Allocations: 15733)
+
+
+Started GET "/students" for 127.0.0.1 at 2022-10-06 09:55:41 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (2.5ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 29.2ms | Allocations: 6934)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 10102)
+Completed 200 OK in 45ms (Views: 32.8ms | ActiveRecord: 9.1ms | Allocations: 11442)
+
+
+Started GET "/assignments" for 127.0.0.1 at 2022-10-06 09:55:58 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/assignments"):
+  
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAssignments (20221006145630)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006145630"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/assignments" for 127.0.0.1 at 2022-10-06 09:56:52 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AssignmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/index.html.erb within layouts/application
+  [1m[36mAssignment Load (1.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments"[0m
+  ↳ app/views/assignments/index.html.erb:14
+  Rendered assignments/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1417)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 95.1ms | Allocations: 25386)
+Completed 200 OK in 109ms (Views: 97.1ms | ActiveRecord: 1.5ms | Allocations: 29069)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at 2022-10-06 09:56:54 -0500
+Processing by AssignmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/new.html.erb within layouts/application
+  Rendered assignments/_form.html.erb (Duration: 13.7ms | Allocations: 3160)
+  Rendered assignments/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 3551)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 6831)
+Completed 200 OK in 52ms (Views: 26.2ms | ActiveRecord: 10.0ms | Allocations: 10424)
+
+
+Started POST "/assignments" for 127.0.0.1 at 2022-10-06 09:56:58 -0500
+Processing by AssignmentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"name"=>"SGSI"}, "commit"=>"Create Assignment"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+  [1m[36mAssignment Create (3.7ms)[0m  [1m[32mINSERT INTO "assignments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SGSI"], ["created_at", "2022-10-06 14:56:58.967778"], ["updated_at", "2022-10-06 14:56:58.967778"]]
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/assignments/1
+Completed 302 Found in 20ms (ActiveRecord: 8.1ms | Allocations: 3370)
+
+
+Started GET "/assignments/1" for 127.0.0.1 at 2022-10-06 09:56:59 -0500
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAssignment Load (2.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:63:in `set_assignment'
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/show.html.erb within layouts/application
+  Rendered assignments/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 274)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3435)
+Completed 200 OK in 26ms (Views: 11.9ms | ActiveRecord: 3.5ms | Allocations: 5461)
+
+
+Started GET "/assignments" for 127.0.0.1 at 2022-10-06 09:57:02 -0500
+Processing by AssignmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/index.html.erb within layouts/application
+  [1m[36mAssignment Load (2.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments"[0m
+  ↳ app/views/assignments/index.html.erb:14
+  Rendered assignments/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1073)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 4833)
+Completed 200 OK in 28ms (Views: 23.8ms | ActiveRecord: 2.3ms | Allocations: 5291)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at 2022-10-06 09:57:04 -0500
+Processing by AssignmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/new.html.erb within layouts/application
+  Rendered assignments/_form.html.erb (Duration: 4.0ms | Allocations: 646)
+  Rendered assignments/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 3916)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 4375)
+
+
+Started POST "/assignments" for 127.0.0.1 at 2022-10-06 09:57:09 -0500
+Processing by AssignmentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"name"=>"Español"}, "commit"=>"Create Assignment"}
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+  [1m[36mAssignment Create (2.9ms)[0m  [1m[32mINSERT INTO "assignments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Español"], ["created_at", "2022-10-06 14:57:10.008135"], ["updated_at", "2022-10-06 14:57:10.008135"]]
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/assignments_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/assignments/2
+Completed 302 Found in 26ms (ActiveRecord: 8.1ms | Allocations: 2642)
+
+
+Started GET "/assignments/2" for 127.0.0.1 at 2022-10-06 09:57:10 -0500
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAssignment Load (2.9ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:63:in `set_assignment'
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/show.html.erb within layouts/application
+  Rendered assignments/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3298)
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 2.9ms | Allocations: 4450)
+
+
+Started GET "/assignments" for 127.0.0.1 at 2022-10-06 09:57:11 -0500
+Processing by AssignmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering assignments/index.html.erb within layouts/application
+  [1m[36mAssignment Load (2.6ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments"[0m
+  ↳ app/views/assignments/index.html.erb:14
+  Rendered assignments/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1214)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 4375)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 2.6ms | Allocations: 4843)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePositions (20221006211619)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.2ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006211619"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEmployees (20221006211935)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006211935"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-10-06 16:21:10 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghiguera/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.1ms | Allocations: 421)
+Completed 200 OK in 14ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3172)
+
+
+Started GET "/students" for 127.0.0.1 at 2022-10-06 16:21:19 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.8ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 25.0ms | Allocations: 10770)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.9ms | Allocations: 40043)
+Completed 200 OK in 88ms (Views: 75.0ms | ActiveRecord: 11.2ms | Allocations: 42194)
+
+
+Started GET "/students/1" for 127.0.0.1 at 2022-10-06 16:21:29 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:63:in `set_student'
+  Rendering layout layouts/application.html.erb
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 434)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4317)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.3ms | Allocations: 6421)
+
+
+Started GET "/students" for 127.0.0.1 at 2022-10-06 16:21:32 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 4975)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 1.0ms | Allocations: 5434)
+
+
+Started GET "/employees" for 127.0.0.1 at 2022-10-06 16:21:46 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:19
+  Rendered employees/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2010)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 5307)
+Completed 200 OK in 27ms (Views: 17.8ms | ActiveRecord: 4.8ms | Allocations: 6636)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 16:21:56 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (2.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 4704)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 8041)
+Completed 200 OK in 33ms (Views: 18.4ms | ActiveRecord: 9.0ms | Allocations: 10415)
+
+
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 16:21:57 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1225)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4492)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.8ms | Allocations: 4949)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5923920429650320125)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSchoolIdToDegree (20221006214944)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "degrees" ADD "school_id" integer[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "students" DROP COLUMN "school"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221006214944"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5923920429650320125)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 17:17:21 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 7238)
+
+
+  
+NoMethodError (undefined method `has_many_and_belongs_to_many' for School:Class
+Did you mean?  has_and_belongs_to_many):
+  
+app/models/school.rb:3:in `<class:School>'
+app/models/school.rb:1:in `<main>'
+app/controllers/schools_controller.rb:6:in `index'
+Started GET "/schools" for 127.0.0.1 at 2022-10-06 17:18:14 -0500
+Processing by SchoolsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (1.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 5609)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.4ms | Allocations: 13202)
+Completed 200 OK in 59ms (Views: 38.6ms | ActiveRecord: 9.7ms | Allocations: 18176)
+
+
+Started GET "/students" for 127.0.0.1 at 2022-10-06 17:18:25 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:21
+  Rendered students/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 9693)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 9763)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 4.5ms | Allocations: 12864)
+
+
+  
+ActionView::Template::Error (undefined method `school' for #<Student id: 1, first_name: "Gustavo", last_name: "Higuera Mayoral", email: "ghiguera@ucol.mx", phone_number: "3121695047", birth_date: "2002-09-03", address: "Juárez #127 Centro", degree: 1, created_at: "2022-10-06 06:15:36.390792000 +0000", updated_at: "2022-10-06 06:15:36.390792000 +0000">):
+    26:         <td><%= student.phone_number %></td>
+    27:         <td><%= student.birth_date %></td>
+    28:         <td><%= student.address %></td>
+    29:         <td><%= student.school %></td>
+    30:         <td><%= student.degree %></td>
+    31:         <td><%= link_to 'Show', student %></td>
+    32:         <td><%= link_to 'Edit', edit_student_path(student) %></td>
+  
+app/views/students/index.html.erb:29
+app/views/students/index.html.erb:21
+Started GET "/students" for 127.0.0.1 at 2022-10-06 17:23:35 -0500
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:20
+  Rendered students/index.html.erb within layouts/application (Duration: 31.4ms | Allocations: 6470)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 9895)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 1.2ms | Allocations: 11127)
+
+
+Started GET "/degree" for 127.0.0.1 at 2022-10-06 17:23:42 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/degree"):
+  
+Started GET "/degrees" for 127.0.0.1 at 2022-10-06 17:23:45 -0500
+Processing by DegreesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering degrees/index.html.erb within layouts/application
+  [1m[36mDegree Load (3.6ms)[0m  [1m[34mSELECT "degrees".* FROM "degrees"[0m
+  ↳ app/views/degrees/index.html.erb:15
+  Rendered degrees/index.html.erb within layouts/application (Duration: 18.9ms | Allocations: 4095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 7447)
+Completed 200 OK in 28ms (Views: 18.0ms | ActiveRecord: 8.6ms | Allocations: 8603)
+
+
