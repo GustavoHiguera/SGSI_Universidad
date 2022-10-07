@@ -17,3 +17,59 @@
 
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>
+
+<h3>School degrees</h3>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>school_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @degrees = @school.degrees%>
+    <% @degrees.each do |degree| %>
+      <tr>
+        <td><%= degree.name %></td>
+        <td><%= degree.school_id %></td>
+        <td><%= link_to 'Show', degree_path(degree.id) %></td>
+        <td><%= link_to 'Edit', edit_degree_path(degree.id) %></td>
+        <td><%= link_to 'Destroy', degree_path(degree), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>School employees</h3>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone number</th>
+      <th>Birth date</th>
+      <th>Address</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees = @school.employees %>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <td><%= employee.phone_number %></td>
+        <td><%= employee.birth_date %></td>
+        <td><%= employee.address %></td>
+        <td><%= employee.position_id %></td>
+        <td><%= link_to 'Show', employee_path(employee.id) %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee.id) %></td>
+        <td><%= link_to 'Destroy', employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

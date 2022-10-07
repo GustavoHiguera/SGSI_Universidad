@@ -12,3 +12,37 @@
 
 <%= link_to 'Edit', edit_degree_path(@degree) %> |
 <%= link_to 'Back', degrees_path %>
+
+<h3>Degree students</h3>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Birth date</th>
+      <th>Address</th>
+      <th>Degree_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students = @degree.students %>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone_number %></td>
+        <td><%= student.birth_date %></td>
+        <td><%= student.address %></td>
+        <td><%= student.degree_id %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

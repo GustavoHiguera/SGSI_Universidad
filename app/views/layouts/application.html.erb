@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CRUDUniversidad</title>
+    <title>Cyberpunk University</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,45 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class='navbar navbar-white bg-success'>
+      <div class='container-fluid custom_margin'>
+        <h1 class='nav_h1 p-4'>📚 Cyberpunk University</h1>
+        <div class=''>
+          <ul class='nav nav-pills nav-right'>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/schools'>Schools<a>
+            </li>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/degrees'>Degrees<a>
+            </li>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/employees'>Employees<a>
+            </li>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/positions'>Positions<a>
+            </li>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/students'>Students<a>
+            </li>
+            <li class='nav-item mx-3'>
+              <a class='btn btn-light' href='/assignments'>Assignments<a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <%= render 'layouts/flash_msgs' %>
+    <div class='container yield_container'>
+      <%= yield %>
+    </div>
+    <footer class='application_footer'>
+      <p> Cyberpunk University ©️ 2022 </p>
+      <p> Created by:
+        [
+          <a>Gustavo Higuera</a>
+          <span>,</span>
+          <a>Alan Hernández</a>
+        ]
+      </p>
+    </footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_06_214944) do
+ActiveRecord::Schema.define(version: 2022_10_07_070857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2022_10_06_214944) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "assignments_employees", id: false, force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "assignment_id", null: false
+  end
+
+  create_table "assignments_students", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "assignment_id", null: false
   end
 
   create_table "degrees", force: :cascade do |t|
@@ -34,9 +44,14 @@ ActiveRecord::Schema.define(version: 2022_10_06_214944) do
     t.string "phone_number"
     t.date "birth_date"
     t.string "address"
-    t.integer "position"
+    t.integer "position_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employees_schools", id: false, force: :cascade do |t|
+    t.bigint "school_id", null: false
+    t.bigint "employee_id", null: false
   end
 
   create_table "positions", force: :cascade do |t|
@@ -60,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_10_06_214944) do
     t.string "phone_number", limit: 10
     t.date "birth_date"
     t.string "address"
-    t.integer "degree"
+    t.integer "degree_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

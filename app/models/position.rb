@@ -1,3 +1,4 @@
 class Position < ApplicationRecord
-  belongs_to :employee
+  validates :name, presence: true
+  has_many :employees
 end

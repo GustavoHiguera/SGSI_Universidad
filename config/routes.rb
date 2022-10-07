@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'schools#index'
+
   resources :employees
   resources :positions
   resources :assignments

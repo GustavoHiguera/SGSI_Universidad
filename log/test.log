@@ -1,0 +1,474 @@
+  [1m[35m (19.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CRUD_Universidad_test"[0m
+  [1m[35m (201.4ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.199319"], ["updated_at", "2022-10-07 08:42:39.199319"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.205306"], ["updated_at", "2022-10-07 08:42:39.205306"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (214.1ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-1" ENCODING = 'unicode'[0m
+  [1m[35m (216.4ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-4" ENCODING = 'unicode'[0m
+  [1m[35m (228.6ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-2" ENCODING = 'unicode'[0m
+  [1m[35m (228.6ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-0" ENCODING = 'unicode'[0m
+  [1m[35m (228.9ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-3" ENCODING = 'unicode'[0m
+  [1m[35m (228.7ms)[0m  [1m[35mCREATE DATABASE "CRUD_Universidad_test-5" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments" CASCADE[0m
+  [1m[35m (39.3ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (19.1ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (75.0ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (28.8ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (77.8ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (45.3ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (100.6ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (103.6ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_employees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (22.6ms)[0m  [1m[35mCREATE TABLE "assignments_employees" ("employee_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (22.6ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (23.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments_students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (21.4ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "assignments_students" ("student_id" bigint NOT NULL, "assignment_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "degrees" CASCADE[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "school_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (23.8ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (27.0ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "birth_date" date, "address" character varying, "position_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (37.4ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees_schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (34.4ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (19.7ms)[0m  [1m[35mCREATE TABLE "employees_schools" ("school_id" bigint NOT NULL, "employee_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "positions" CASCADE[0m
+  [1m[35m (21.1ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "positions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schools" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (16.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (38.8ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying, "phone_number" character varying(10), "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (34.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.862921"], ["updated_at", "2022-10-07 08:42:39.862921"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (26.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "phone_number" character varying(10), "birth_date" date, "address" character varying, "degree_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (27.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.870706"], ["updated_at", "2022-10-07 08:42:39.870706"]]
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221007070857)[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.881751"], ["updated_at", "2022-10-07 08:42:39.881751"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221006051926),
+(20221006060000),
+(20221006060820),
+(20221006062258),
+(20221006145630),
+(20221006211619),
+(20221006211935),
+(20221006214944),
+(20221007054754),
+(20221007055657);
+
+[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.888997"], ["updated_at", "2022-10-07 08:42:39.888997"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.907438"], ["updated_at", "2022-10-07 08:42:39.907438"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.914242"], ["updated_at", "2022-10-07 08:42:39.914242"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.915655"], ["updated_at", "2022-10-07 08:42:39.915655"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-10-07 08:42:39.917542"], ["updated_at", "2022-10-07 08:42:39.917542"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.922409"], ["updated_at", "2022-10-07 08:42:39.922409"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.923140"], ["updated_at", "2022-10-07 08:42:39.923140"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.927743"], ["updated_at", "2022-10-07 08:42:39.927743"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "1951433a1ccc4a0e73f9b765230fa03a06812fde"], ["created_at", "2022-10-07 08:42:39.924952"], ["updated_at", "2022-10-07 08:42:39.924952"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (38.4ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (41.6ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (43.0ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.8ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (59.2ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[35m (54.2ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (39.6ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.0ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (45.9ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[35m (45.5ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[35m (46.6ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[35m (46.8ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools", "students"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "assignments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "schools" DISABLE TRIGGER ALL;ALTER TABLE "students" DISABLE TRIGGER ALL;ALTER TABLE "assignments_employees" DISABLE TRIGGER ALL;ALTER TABLE "assignments_students" DISABLE TRIGGER ALL;ALTER TABLE "degrees" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "employees_schools" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (30.4ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "schools", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (34.1ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "schools", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (44.1ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions", "schools"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (38.9ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "schools", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (45.0ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "schools", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.8ms)[0m  [1m[35mTRUNCATE TABLE "assignments", "schools", "students", "assignments_employees", "assignments_students", "degrees", "employees", "employees_schools", "positions"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "assignments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "schools" ENABLE TRIGGER ALL;ALTER TABLE "students" ENABLE TRIGGER ALL;ALTER TABLE "assignments_employees" ENABLE TRIGGER ALL;ALTER TABLE "assignments_students" ENABLE TRIGGER ALL;ALTER TABLE "degrees" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "employees_schools" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
